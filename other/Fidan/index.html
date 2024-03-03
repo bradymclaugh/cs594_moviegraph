@@ -1,0 +1,149 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>  
+<body>
+
+<hr>
+<h2>Superball Meets JGraph</h2>
+<p>
+My inspiration for this lab came from cs302 lab5 - Superball. In short, Superball 
+is a game where you can swap cells and gain points for cells that connect to a goal 
+cell. I'd suggest looking at 
+<a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/Lab5>Dr. Plank's writeup</a> 
+for more details about the game.
+</p>
+
+<hr>
+<h2>The Program</h2>
+<p>
+Given a state of a Superball board and some game inputs, the purpose 
+of my program is to find the top 10 swaps that give the best state of 
+the board. Then, the program will list all the swaps in descending order,
+each with a corresponding JGraph of what the board looks like post-swap.
+
+</p>
+ 
+
+<p><center><table border=3 cellpadding=3><td valign=top><pre>
+...yyryy.p
+y.rg.yppyp
+**gg.yrpPP
+GGgbgybp**
+R*bg.yrp*P
+G*gygyypY*
+yyybpby.pb
+.pgg.yp.bb    
+</pre></td>
+<td><img src=image1.png width=300></td>
+</table></center><p>
+
+<hr>
+<h2>Command Line Inputs</h2>
+<p>
+The C++ file takes several parameters on the command line in order to find and 
+display the best swaps for a Superball game board. It takes the board as a text
+file with the same format as specified in cs302 lab5, and then constructs a nice 
+visual output using JGraph. For all inputs, the program needs:
+</p>
+<ol>
+    <li> the input file name with the board (.txt)</li> 
+    <li> the output file name that should be created (.jgr) </li> 
+    <li> player name </li> 
+    <li> colors string </li> 
+    <li> minimum scoring size </li>
+</ol>
+
+<p>Only the following colors are supported:</p>
+<ul>
+    <li> p, purple </li>
+    <li> b, blue </li>
+    <li> y, yellow </li>
+    <li> r, red </li>
+    <li> g, green </li>
+    <li> i, pink </li>
+    <li> n, brown </li>
+</ul>
+
+<hr>
+<h2>Full Example</h2>
+<p>Below is a full example ran with:</p>
+<ol>
+    <li>g++ -o superball superball.cpp</li>
+	<li>./superball input2.txt graph2.jgr binky pbyrg 2 && ./jgraph -P graph2.jgr | ps2pdf - | convert -density 300 - -quality 100 image2.jpg</li>
+</ol>
+
+<p><center><table border=3 cellpadding=3><td valign=top><pre>
+    ...yyryy.p
+    y.rg.yppyp
+    **gg.yrpPP
+    GGgbgybp**
+    R*bg.yrp*P
+    G*gygyypY*
+    yyybpby.pb
+    .pgg.yp.bb    
+    </pre></td>
+    <td><img src=image2.png width=400></td>
+</table></center><p>
+    
+<hr>
+<h2>Creating the Board</h2>
+<p>
+The dimensions of the board are generated dynamically, based on the height and width 
+of the input board. Each cell is a box marktype at a cetain point and are filled 
+using <b>cfill</b>. The goal cells are marked with the character '*'.
+</p>
+
+<p>
+One interesting problem that came up when graphing the board is the way that the board 
+is represented in code versus the graph itself. The board is stored in a vector, so
+(0,0) is the top left cell of the board. However, when making the graph, (0,0) is the 
+origin. To convert the board to a graph, it had to be rotated 90deg clockwise. 
+</p>
+
+<p>
+The background of the board is dependent on the post-swap scorable state of the board.
+Green means it's a good swap, yellow means it's a decent swap, and red means the swap
+doesn't help out much at all. See scoring for more details on how the score is
+calculated.
+</p>
+
+<hr>
+<h2>Creating the Information Menu</h2>
+<p>
+Most of the information given on the command line is displayed on the information menu 
+on the right side of the graph. This is done by drawing a <b>newline poly</b> with a 
+white <b>pcfill</b>. All of the info is then drawn inside it using the <b>newstring</b> 
+attribute. Since the width of the graph depends on the input board, the entire navigation
+menu also has to be dynamically drawn.
+</p>
+
+<hr>
+<h2>Getting the Components</h2>
+<p>
+To find which cells are connected, connected components are used instead of disjoint 
+sets. If any part of the component is in a goal cell and it is greater than the mss,
+the component is marked with an orange background on the graph. In JGraph, this background around
+the marker is a line that is drawn around cell.
+</p>
+
+<hr>
+<h2>Scoring</h2>
+<p>
+For scoring, only the components that can be scored are considered. This is the score that
+is presented in the blue box on the information menu. Perhaps there's better scoring 
+algorithms that also take into account groups of cells that can't yet be scored. Though 
+I didn't implement different scoring methods, it would be interesting to see how those 
+swaps differ from the ones that this program picks.
+</p>
+
+<hr>
+<h2>Multiple Graphs on a Page</h2>
+<p>
+To get multiple graphs on a page, the x and y coordinates for each graph is dynamically
+generated. Based on the number of graphs to generate (10), the number of rows (5) and 
+the number of columns (2), the graph of potential swaps is assigned a calculated
+coordinate to be at on the page.
+</p>
+</body>
+</html>

@@ -1,2 +1,2 @@
-# cs594_moviegraph
+# CS594 - MovieGraph
  

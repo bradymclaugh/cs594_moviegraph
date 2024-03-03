@@ -1,0 +1,66 @@
+<h1>Chartmaker</h1>
+
+<h2>Samantha Zimmermann</h2>
+
+<h2>COSC 494, Lab 3 : Jgraph</h2>
+
+Chartmaker is a program that generates a knitting chart from a PPM
+file using jgraph.
+
+<h2>Setup the repository</h2>
+
+<ol>
+    <li>Clone this repository</li>
+    <li>Run setup script with command <code>sh setup.sh</code></li>
+</ol>
+
+All set up! Make will generate 5 example images, example1.jpg - example5.jpg.
+
+<h2>Using Chartmaker</h2>
+
+Use the script <code>convert.sh</code> to easily utilize jgraph and chartmaker:
+
+<pre><code><span class="hljs-keyword">sh</span> convert.<span class="hljs-keyword">sh</span> &lt;<span class="hljs-built_in">input</span> <span class="hljs-keyword">file</span> name&gt; &lt;output <span class="hljs-keyword">file</span> name&gt; <span class="hljs-symbol">&lt;arguments&gt;</span>
+
+</code></pre><p>This converts your input file to the specified output file and applies the arguments (outlined below). Specifying no arguments will output a chart of the same dimensions of the input file, with the same colors, and with gridlines and labels at increments of 10 across the bottom and left sides. Whatever the extension of the output file is, it will convert it to that file type. So, for example, if you specify .pdf, it will convert to PDF, and if you specify .jpg, it will convert to JPG. </p>
+
+<h3 id="arguments">Arguments</h3>
+
+The following arguments are currently supported:
+
+<ul>
+    <li><code>no_gridlines</code> : turns off bold gridlines and numbering.</li>
+    <li><code>grid_spacing X</code> : specifies increment of gridlines and number labeling. The default is every 10 blocks.</li>
+    <li><code>no_numbering</code> : turns off number labels along width and height. Will still print bold gridlines.</li>
+    <li><code>all_numbers</code> : will print a number on every box. Not recommended for very large charts. Will still print gridlines at default 10, or at the specified gridline.</li>
+    <li><code>tile X Y</code> : tile the input image, by the given dimensions, where X is the width and Y is the height.</li>
+    <li><code>pad X</code> : pads the overall image by X blocks on each edge. If used with tiling, this will pad the resulting image after the tiling and tile padding is performed.</li>
+    <li><code>background R G B</code> : specifies the color of the padding blocks as an RGB value with each field ranging 0 to 255. White by default.</li>
+</ul>
+
+Note: if you specify conflicting arguments, the program will take the most recent it has received, or the last argument specified, and ignore the previous ones.
+
+<h3>Making your images</h3>
+
+Here are the ways I have created PPM files that can be used reasonably with this program:
+<ul>
+    <li>The website <a href="https://convertio.co/">Convertio</a> is a good website to convert between different filetypes. So no matter what image you have, you can convert it to a PPM through this site. Note that with PNGs with a transparent background, this website gives it a black background as a PPM.</li>
+    <li>Find a pixel art image I like online, and use Paint 3D (on Windows) to scale it down to the minimum size. You can choose the option &quot;lock aspect ratio&quot; and size down the number of pixels to the minimum possible. So, if you have a pixel art that is 10 pixels by 10 pixels, you would want to reduce that canvas size to that number of pixels.</li>
+    <li>Use <a href="https://www.pixilart.com/draw">Pixil Art</a> to make a custom pixel art image. As mentioned above, you might want to get rid of the clear background or download it as a .jpg.</li>
+</ul>
+
+<h3>Using the executables directly</h3>
+
+If you want to use the executables individually, you can do that as well. Chartmaker is ran with the following arguments:
+
+<code>./chartmaker &lt;filename&gt; &lt;a/p&gt; &lt;arguments&gt;</code></p>
+
+<ul>
+    <li>filename: specifies the input file name</li>
+    <li>a/p: specifies PPM file or ASCII art file (Note: ASCII art not yet implemented)</li>
+</ul>
+
+Chartmaker outputs the jgraph on standard out. To put this output into a file, you can use shell redirection and specify the name of your output file. Here&#39;s an example:
+
+<pre><code>./chartmaker myfile<span class="hljs-selector-class">.ppm</span> <span class="hljs-selector-tag">p</span> &gt; myoutput.jgr
+</code></pre><p>So, this converts the PPM file myfile to a jgraph file called myoutput. It will create the file myoutput.jgr if it does not exist, or if it does exist, it will overwrite it.</p>

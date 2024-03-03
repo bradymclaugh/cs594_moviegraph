@@ -1,0 +1,105 @@
+<!-- <!DOCTYPE html> -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    </head>
+    <body data-new-gr-c-s-check-loaded="14.982.0">
+        <hr>
+        
+        <h2><b>Don't Fly Into a F***ing Asteroid!!!</b></h2>
+        
+        <ul>
+            <li>Tom Hills</li>
+            <li>Most recent revision: Sat October 24 2020</li>
+            <li>Originally created for Fall 2020 CS594 taught by James Plank, <a href="http://web.eecs.utk.edu/courses/fall2020/cosc594jp/labs/Lab-3-Jgraph/">Lab 3: Jgraph</a></li>
+        </ul>
+        
+        <hr>
+        
+        <b>Don't Fly Into a F***ing Asteroid!!!</b> is a very simple space flight game inspired by the classical video game, Asteroids. 
+        The game puts you in control of a space ship which moves through outter space using thrust. Thrust is applied directionally using
+        prescribed keyboard keys as follows:
+
+        <ul>
+            <li>E: Thrust 1 unit UP</li>
+            <li>S: Thrust 1 unit LEFT</li>
+            <li>F: Thrust 1 unit RIGHT</li>
+            <li>D: Thrust 1 unit DOWN</li>
+            <li>X: Cancels all thrust and movement</li>
+            <li>V: Moves ship back to default position</li>
+            <li>Q: Pauses game</li>
+            <li>Z: Prints positions and velocities of all screen objects</li>
+        </ul>
+    
+        Thrusting in any direction increases the velocity in said direction by 1 unit and is cumulative with multiple keystrokes. 
+        It is worth noting that your ship can go "off-screen" indefinitely in any direction. If this happens and you can't find your way back,
+        the V key will place your ship back into default position. Also, stopping or reversing direction requires "undoing" the amount of thrust you've already
+        invested in your current direction(s). For example, if you thrusted upwards by pressing the E key three times, you'd have to press the D key three times 
+        to stop or more than three times to undo upward thrust and begin moving downwards. For convenience, I've included the X key which cancels thrust in 
+        all directions and stops your ship from moving. This is especially handy when you've accidently applied too much thrust and lost 
+        your ship offscreen. If you were to only press V key, then your ship would relocate to default position, but the large thrust values would likely result
+        in, once again, your ship flying offscreen. Using the X key to cancel all thrust and then the V key to relocate the ship is recommended in these cases.      
+        
+        <hr>
+        <h2>Setting Up And Playing The Game</h2>
+
+        The game uses <b><a href="http://web.eecs.utk.edu/~jplank/plank/jgraph/jgraph.html">jgraph</a></b> to continuously overwrite a jpg file with the visual state of the game. As such, it is vitally
+        important to find a way to view a single jpg file which updates the view when the file changes. 
+        If you want to install <b><a href="http://web.eecs.utk.edu/~jplank/plank/jgraph/jgraph.html">jgraph</a></b> locally, you can follow the link to obtain the source files, or you can remote into the UTK lab computers which already have <b><a href="http://web.eecs.utk.edu/~jplank/plank/jgraph/jgraph.html">jgraph</a></b> installed. The following instructions are for playing remotely, but these can easily
+        be adjusted to play locally.<br><br>
+        
+        <u>INSTRUCTIONS</u><br>
+        <ol>
+            <li>
+                Download and install VSCode if you don't have it already. 
+                <ul>
+                    <li>You may prefer to use another IDE/program if you wish, but VSCode has easy-to-use SSH capabilities PLUS it allows remote viewing of jpg files which update if the content changes.</li>
+                </ul>
+            </li><br>
+
+            <li>Remote-in to one of the UTK's lab computers.</li><br>
+
+            <li>Use VSCode's explorer to find the game's main directory (<b><i>/home/jplank/www-home/plank/classes/cs494/494/labs/Lab-3-Jgraph</i></b>). 
+                <ul>
+                    <li>If not there, then Dr. Plank placed them somewhere else. You'll have to ask or bribe.</li>
+                </ul>
+            </li><br>
+
+            <li>Open "jimage.jpg" in it's own VSCode window. This window will act as your gaming screen.</li><br>
+
+            <li>The game is played using the console so you can either use VSCode's built-in terminal or a separate program. I prefer using VSCode in conjunction with MobaXterm for some strange reason.<br>
+                To start the game, simply enter the following console command in the game's main directory:<br><br>
+                <center>
+                    <table border="3" cellpadding="3">
+                        <tbody>
+                            <tr>
+                                <td>
+                                <pre>./jgraph</pre>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </center>     
+                <br>       
+                The game will print out an introduction and instructions with the game paused. Once you're ready, hit Q key to unpause and play.
+                <ul>
+                    <li>If gameplay is jittery and sluggish as compared to the "example gameplay video" below, then remote into different lab computers until you find a good one.</li>
+                </ul>
+            </li>
+        </ol>      
+        
+        <hr>
+
+        <h2>Example Gameplay Video</h2>
+
+        Below is a video showing a short segment of gameplay. And yes, I know the collision logic is horrendous, but it gets the point across ;). Enjoy! <br>
+
+        <video width="1080" height="540" controls>
+            <source src="gameplayVideo/jgraphGameplay.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <hr>
+   
+    </body>
+</html>
