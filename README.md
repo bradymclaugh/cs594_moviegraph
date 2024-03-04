@@ -33,8 +33,9 @@ python3 moviegraph.py help
 The output of the standard program is `moviegraph.jpg`. The output of the showcase program is in the `showcase/` folder.
 
 ## Examples
-### 1 - Robin Williams vs Kathy Bates
-### 2 - Al Pacino vs Robert De Niro
-### 3 - Top 5 actors
-### 4 - Top 5 actresses
-### 5 - Help page?
+### 1 - Robin Williams vs Kathy Bates ![Robin Williams vs Kathy Bates ](jgraph/jgraph/showcase/1_williams_vs_bates.jpg)
+### 2 - Al Pacino vs Robert De Niro ![Al Pacino vs Robert De Niro](jgraph/jgraph/showcase/2_pacino_vs_de_niro.jpg)
+### 3 - Top 5 actors ![Top 5 actors](jgraph/jgraph/showcase/3_top_5_actors.jpg)
+### 4 - Top 5 actresses![Top 5 actresses](jgraph/jgraph/showcase/4_top_5_actresses.jpg)
+### 5 - Actor Database Information ![Actor Database Information](jgraph/jgraph/showcase/5_actor_database.jpg)
+### 6 - Actress Database Information ![Actress Database Information](jgraph/jgraph/showcase/6_actress_database.jpg)

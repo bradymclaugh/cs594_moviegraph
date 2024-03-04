@@ -1,0 +1,26 @@
+newgraph
+xaxis min 0 max 1000 size 8.5 nodraw
+yaxis min 0 max 1000 size 11 nodraw
+newcurve eps pics/robin_williams.eps marksize 200 200 pts 150 150
+newstring x 450 y 150 fontsize 24 : Robin Williams
+newcurve eps pics/al_pacino.eps marksize 200 200 pts 150 350
+newstring x 450 y 350 fontsize 24 : Al Pacino
+newcurve eps pics/daniel_day_lewis.eps marksize 200 200 pts 150 550
+newstring x 450 y 550 fontsize 24 : Daniel Day Lewis
+newcurve eps pics/morgan_freeman.eps marksize 200 200 pts 150 750
+newstring x 450 y 750 fontsize 24 : Morgan Freeman
+newcurve eps pics/robert_de_niro.eps marksize 200 200 pts 150 950
+newstring x 450 y 950 fontsize 24 : Robert De Niro
+newcurve eps pics/anthony_hopkins.eps marksize 200 200 pts 1150 150
+newstring x 850 y 150 fontsize 24 : Anthony Hopkins
+newcurve eps pics/denzel_washington.eps marksize 200 200 pts 1150 350
+newstring x 850 y 350 fontsize 24 : Denzel Washington
+newcurve eps pics/jack_nicholson.eps marksize 200 200 pts 1150 550
+newstring x 850 y 550 fontsize 24 : Jack Nicholson
+newcurve eps pics/leonardo_dicaprio.eps marksize 200 200 pts 1150 750
+newstring x 850 y 750 fontsize 24 : Leonardo DiCaprio
+newcurve eps pics/gary_oldman.eps marksize 200 200 pts 1150 950
+newstring x 850 y 950 fontsize 24 : Gary Oldman
+legend off
+title : Actors in Database
+title x 650 y 1200 fontsize 64

@@ -1,0 +1,26 @@
+newgraph
+xaxis min 0 max 1000 size 8.5 nodraw
+yaxis min 0 max 1000 size 11 nodraw
+newcurve eps pics/katherine_hepburn.eps marksize 200 200 pts 115 150
+newstring x 400 y 150 fontsize 24 : Katharine Hepburn
+newcurve eps pics/meryl_streep.eps marksize 200 200 pts 115 350
+newstring x 400 y 350 fontsize 24 : Meryl Streep
+newcurve eps pics/audrey_hepburn.eps marksize 200 200 pts 115 550
+newstring x 400 y 550 fontsize 24 : Audrey Hepburn
+newcurve eps pics/maggie_smith.eps marksize 200 200 pts 115 750
+newstring x 400 y 750 fontsize 24 : Maggie Smith
+newcurve eps pics/ingrid_bergman.eps marksize 200 200 pts 115 950
+newstring x 400 y 950 fontsize 24 : Ingrid Bergman
+newcurve eps pics/julie_andrews.eps marksize 200 200 pts 1050 150
+newstring x 800 y 150 fontsize 24 : Julie Andrews
+newcurve eps pics/helen_mirren.eps marksize 200 200 pts 1050 350
+newstring x 800 y 350 fontsize 24 : Helen Mirren
+newcurve eps pics/judi_dench.eps marksize 200 200 pts 1050 550
+newstring x 800 y 550 fontsize 24 : Judi Dench
+newcurve eps pics/helena_bonham_carter.eps marksize 200 200 pts 1050 750
+newstring x 750 y 750 fontsize 24 : Helena Bonham Carter
+newcurve eps pics/kathy_bates.eps marksize 200 200 pts 1050 950
+newstring x 800 y 950 fontsize 24 : Kathy Bates
+legend off
+title : Actresses in Database
+title x 585 y 1200 fontsize 64
